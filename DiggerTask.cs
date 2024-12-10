@@ -14,21 +14,17 @@ public class Player : ICreature
 
     public void Move(int deltaX, int deltaY)
     {
-        // Найти текущую позицию игрока
         var (x, y) = FindPlayerPosition();
 
-        // Новая позиция, куда хочет переместиться игрок
         var newX = x + deltaX;
         var newY = y + deltaY;
 
-        // Проверяем границы карты
         if (!IsInBounds(newX, newY)) return;
 
         var target = Game.Map[newX, newY];
 
         if (target == null || target is EndPoint)
         {
-            // Перемещаем игрока
             Game.Map[x, y] = null;
             Game.Map[newX, newY] = this;
             Game.RestoreEndPoints();
@@ -72,7 +68,6 @@ public class Box : ICreature
     {
         var (x, y) = FindPosition();
 
-        // Проверяем, находится ли ящик на целевой точке
         return Game.Map[x, y] is EndPoint;
     }
 

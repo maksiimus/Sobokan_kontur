@@ -9,11 +9,12 @@ namespace Digger
     {
         // Карта уровня
         private const string mapWithPlayerBoxEndPoint = @"
-WWWWW
-W P W
-W B W
-W E W
-WWWWW";
+WWWWWW
+W P EW
+W B  W
+W E BW
+W    W
+WWWWWW";
 
         public static ICreature[,] Map { get; set; }
         public static int MapWidth => Map.GetLength(0);
